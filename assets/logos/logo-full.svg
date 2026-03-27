@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240">
+  <defs>
+    <!-- Tree ring mark -->
+  </defs>
+  
+  <!-- Logo mark: abstract tree cross-section / rings -->
+  <g transform="translate(120, 120)">
+    <!-- Outer ring -->
+    <circle cx="0" cy="0" r="48" fill="none" stroke="#1a2e1a" stroke-width="2.5"/>
+    <!-- Middle ring -->
+    <ellipse cx="0" cy="0" rx="32" ry="34" fill="none" stroke="#1a2e1a" stroke-width="2"/>
+    <!-- Inner ring -->
+    <ellipse cx="1" cy="-1" rx="17" ry="19" fill="none" stroke="#1a2e1a" stroke-width="1.5"/>
+    <!-- Core dot -->
+    <circle cx="1" cy="-1" r="3.5" fill="#b8954f"/>
+  </g>
+  
+  <!-- Wordmark -->
+  <text x="200" y="135" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="72" font-weight="700" letter-spacing="16" fill="#1a2e1a">STAMM</text>
+  
+  <!-- Gold period -->
+  <circle cx="605" cy="128" r="5" fill="#b8954f"/>
+</svg>
