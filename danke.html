@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danke — STAMM</title>
+<link rel="icon" type="image/svg+xml" href="assets/logos/logo-icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a2e1a;
+    --moss: #4a6741;
+    --lichen: #8b9e7e;
+    --snow: #f5f3f0;
+    --cream: #faf9f7;
+    --gold: #b8954f;
+    --gold-light: #d4b876;
+    --text: #1a1a18;
+    --text-muted: #6b6860;
+    --rule: #d4d0ca;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text); background: var(--cream);
+    line-height: 1.7; -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  [data-lang="en"] { display: none; }
+  body.en [data-lang="en"] { display: initial; }
+  body.en [data-lang="de"] { display: none; }
+
+  .success-icon {
+    width: 80px; height: 80px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: scaleIn .5s .1s cubic-bezier(.175,.885,.32,1.275) forwards;
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(.5); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700; color: var(--forest);
+    margin-bottom: 1rem;
+    opacity: 0; animation: fadeUp .6s .25s forwards;
+  }
+  h1 em { font-style: italic; color: var(--gold); }
+
+  .subtitle {
+    font-size: 1.15rem; color: var(--text-muted);
+    max-width: 500px; margin-bottom: 2.5rem;
+    opacity: 0; animation: fadeUp .6s .4s forwards;
+  }
+
+  .steps-next {
+    max-width: 480px; text-align: left;
+    margin-bottom: 3rem;
+    opacity: 0; animation: fadeUp .6s .55s forwards;
+  }
+
+  .step-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .step-item:last-child { border-bottom: none; }
+
+  .step-icon {
+    width: 32px; height: 32px; flex-shrink: 0;
+    background: var(--snow); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: .85rem; font-weight: 600; color: var(--moss);
+  }
+
+  .step-item h3 {
+    font-size: .95rem; font-weight: 600; color: var(--forest);
+    margin-bottom: .15rem;
+  }
+  .step-item p {
+    font-size: .85rem; color: var(--text-muted); line-height: 1.6;
+  }
+
+  .home-link {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-size: .85rem; font-weight: 500; letter-spacing: .06em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--forest); border: 1px solid var(--forest);
+    padding: .85rem 2rem; border-radius: 2px;
+    transition: all .25s;
+    opacity: 0; animation: fadeUp .6s .7s forwards;
+  }
+  .home-link:hover { background: var(--forest); color: var(--cream); }
+
+  .lang-toggle {
+    position: fixed; top: 1.5rem; right: 1.5rem;
+    background: none; border: 1px solid var(--rule); border-radius: 100px;
+    padding: .3rem .75rem; font-size: .7rem; letter-spacing: .1em;
+    font-weight: 500; cursor: pointer; color: var(--text-muted);
+    transition: all .25s; font-family: inherit;
+  }
+  .lang-toggle:hover { border-color: var(--forest); color: var(--forest); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .footer-note {
+    position: fixed; bottom: 1.5rem;
+    font-size: .75rem; color: var(--text-muted);
+  }
+  .footer-note a { color: var(--moss); text-decoration: none; }
+  .footer-note a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<button class="lang-toggle" onclick="document.body.classList.toggle('en'); this.textContent = document.body.classList.contains('en') ? 'DE' : 'EN';">EN</button>
+
+<!-- Checkmark icon -->
+<svg class="success-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="40" cy="40" r="38" stroke="#4a6741" stroke-width="2.5" fill="#f5f3f0"/>
+  <circle cx="40" cy="40" r="28" stroke="#4a6741" stroke-width="1.5" fill="none" opacity=".2"/>
+  <path d="M26 40l10 10 18-20" stroke="#4a6741" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="40" cy="40" r="5" fill="#b8954f" opacity=".5"/>
+</svg>
+
+<h1>
+  <span data-lang="de">Willkommen in<br>Ihrem <em>Wald</em>.</span>
+  <span data-lang="en">Welcome to<br>Your <em>Forest</em>.</span>
+</h1>
+
+<p class="subtitle">
+  <span data-lang="de">Vielen Dank für Ihre Baumpatenschaft. Sie haben soeben einem Baum im Berner Oberland Ihren Namen gegeben.</span>
+  <span data-lang="en">Thank you for your tree sponsorship. You have just given your name to a tree in the Bernese Oberland.</span>
+</p>
+
+<div class="steps-next">
+  <div class="step-item">
+    <div class="step-icon">1</div>
+    <div>
+      <h3><span data-lang="de">Bestätigung per E-Mail</span><span data-lang="en">Confirmation Email</span></h3>
+      <p>
+        <span data-lang="de">Sie erhalten in Kürze eine Bestätigung mit allen Details zu Ihrer Patenschaft.</span>
+        <span data-lang="en">You will shortly receive a confirmation with all details of your sponsorship.</span>
+      </p>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-icon">2</div>
+    <div>
+      <h3><span data-lang="de">Ihr Zertifikat</span><span data-lang="en">Your Certificate</span></h3>
+      <p>
+        <span data-lang="de">Innerhalb weniger Tage erhalten Sie Ihr persönliches Zertifikat mit Foto und Koordinaten Ihres Baumes.</span>
+        <span data-lang="en">Within a few days, you will receive your personal certificate with a photo and coordinates of your tree.</span>
+      </p>
+    </div>
+  </div>
+  <div class="step-item">
+    <div class="step-icon">3</div>
+    <div>
+      <h3><span data-lang="de">Jährliche Updates</span><span data-lang="en">Annual Updates</span></h3>
+      <p>
+        <span data-lang="de">Freuen Sie sich auf regelmässige Fotos und Neuigkeiten aus dem Wald — direkt in Ihr Postfach.</span>
+        <span data-lang="en">Look forward to regular photos and news from the forest — delivered straight to your inbox.</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<a href="index.html" class="home-link">
+  <span data-lang="de">Zurück zur Startseite</span>
+  <span data-lang="en">Back to Homepage</span>
+</a>
+
+<div class="footer-note">
+  <span data-lang="de">Fragen? </span>
+  <span data-lang="en">Questions? </span>
+  <a href="mailto:hallo@stamm-wald.ch">hallo@stamm-wald.ch</a>
+</div>
+
+<script>
+  // Auto-detect language: URL param > browser language > default German
+  const params = new URLSearchParams(window.location.search);
+  const langParam = params.get('lang');
+  if (langParam === 'en' || (!langParam && !navigator.language.startsWith('de'))) {
+    document.body.classList.add('en');
+    document.querySelector('.lang-toggle').textContent = 'DE';
+  }
+</script>
+
+</body>
+</html>
