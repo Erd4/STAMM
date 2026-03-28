@@ -283,7 +283,8 @@
     flex-direction: column;
   }
   .card:hover { border-color: var(--lichen); transform: translateY(-3px); }
-  .card.featured { border-color: var(--gold); }
+  .card.featured { border-color: var(--gold-light); transition: border-color .3s, transform .3s; }
+  .card.featured:hover { border-color: var(--gold); }
   .card.featured::before {
     content: '';
     position: absolute; top: 0; left: 2rem; right: 2rem;
@@ -409,9 +410,9 @@
 
   /* ── FOREST BG ── */
   .forest-bg {
-    position: fixed;
-    bottom: 0; left: 0; right: 0;
-    z-index: 0;
+    position: relative;
+    height: 340px;
+    margin-top: -5rem;
     pointer-events: none;
     opacity: 0;
     transform: translateY(40px);
@@ -766,8 +767,11 @@
 
   window.addEventListener('scroll', () => {
     document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 40);
-    document.getElementById('forest-bg').classList.toggle('visible', window.scrollY > 200);
   });
+
+  new IntersectionObserver(([e]) => {
+    e.target.classList.toggle('visible', e.isIntersecting);
+  }, { threshold: 0.1 }).observe(document.getElementById('forest-bg'));
 
   document.querySelectorAll('.faq-q').forEach(btn => {
     btn.addEventListener('click', () => {
