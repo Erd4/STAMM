@@ -51,27 +51,36 @@
   .forest-bg {
     position: fixed;
     bottom: 0; left: 0; right: 0;
-    z-index: 0;
+    z-index: 10;
+    pointer-events: none;
+  }
+  .forest-bg::before {
+    content: '';
+    position: absolute;
+    bottom: 100%; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--cream));
     pointer-events: none;
   }
   .forest-layer {
     position: absolute; bottom: 0; left: 0;
     width: 100%;
   }
-  .container { position: relative; z-index: 1; }
+  .forest-curtain {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 340px;
+    background: var(--cream);
+    z-index: 9;
+    pointer-events: none;
+  }
+  .spacer { height: 400px; }
 </style>
 </head>
 <body>
 <div class="container">
   <a href="index.html" class="back">&larr; Zurück / Back</a>
   <h1>Impressum</h1>
-
-  <h2>Angaben gemäss Art. 3 UWG</h2>
-  <!-- TODO: Fill in your real details -->
-  <p><strong>Alexander Jannis Kekkas</strong></p>
-  <p>Mettlenstrasse 19</p>
-  <p>3780 Gstaad</p>
-  <p>Schweiz / Switzerland</p>
 
   <h2>Kontakt / Contact</h2>
   <p>E-Mail: <a href="mailto:hallo@stamm-wald.ch">hallo@stamm-wald.ch</a></p>
@@ -84,7 +93,16 @@
 
   <h2>Urheberrecht / Copyright</h2>
   <p>&copy; 2026 STAMM. Alle Inhalte und Bilder sind urheberrechtlich geschützt. / All content and images are protected by copyright.</p>
+  
+  <h2>Angaben gemäss Art. 3 UWG</h2>
+  <p><strong>Alexander Jannis Kekkas</strong></p>
+  <p>Mettlenstrasse 19</p>
+  <p>3780 Gstaad</p>
+  <p>Schweiz / Switzerland</p>
 </div>
+
+<div class="spacer"></div>
+<div class="forest-curtain"></div>
 
 <div class="forest-bg">
   <svg class="forest-layer" height="340" viewBox="0 0 1600 340" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
