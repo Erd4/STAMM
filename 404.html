@@ -1,1 +1,253 @@
-{"type":"error","error":{"type":"not_found_error","message":"File not found in container: /mnt/user-data/outputs/404.html","details":{"error_visibility":"user_facing"}},"request_id":"req_011CZUUjZ3Hw7ynoaYgunHgJ"}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — STAMM</title>
+<link rel="icon" type="image/svg+xml" href="assets/logos/logo-icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a2e1a;
+    --moss: #4a6741;
+    --snow: #f5f3f0;
+    --cream: #faf9f7;
+    --gold: #b8954f;
+    --text: #1a1a18;
+    --text-muted: #6b6860;
+    --rule: #d4d0ca;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text); background: var(--cream);
+    line-height: 1.7; -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  [data-lang="en"] { display: none; }
+  body.en [data-lang="en"] { display: initial; }
+  body.en [data-lang="de"] { display: none; }
+
+  body::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 100% 50% at 50% 85%, rgba(74,103,65,.08), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 30% 70%, rgba(26,46,26,.04), transparent);
+    pointer-events: none;
+  }
+
+  .content {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column;
+    align-items: center;
+    margin-top: -6vh;
+  }
+
+  .tree-icon {
+    margin-bottom: 2rem;
+    opacity: .12;
+  }
+
+  .error-code {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(5rem, 15vw, 10rem);
+    font-weight: 700;
+    color: var(--forest);
+    line-height: 1;
+    opacity: .08;
+    margin-bottom: -1.5rem;
+    position: relative;
+    z-index: 0;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 600; color: var(--forest);
+    margin-bottom: .75rem;
+    position: relative; z-index: 1;
+  }
+
+  p {
+    font-size: 1rem; color: var(--text-muted);
+    max-width: 400px; margin-bottom: 2.5rem;
+  }
+
+  .home-link {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-size: .85rem; font-weight: 500; letter-spacing: .06em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--forest); border: 1px solid var(--forest);
+    padding: .85rem 2rem; border-radius: 2px;
+    transition: all .25s;
+  }
+  .home-link:hover { background: var(--forest); color: var(--cream); }
+
+  .lang-toggle {
+    position: fixed; top: 1.5rem; right: 1.5rem; z-index: 10;
+    background: none; border: 1px solid var(--rule); border-radius: 100px;
+    padding: .3rem .75rem; font-size: .7rem; letter-spacing: .1em;
+    font-weight: 500; cursor: pointer; color: var(--text-muted);
+    transition: all .25s; font-family: inherit;
+  }
+  .lang-toggle:hover { border-color: var(--forest); color: var(--forest); }
+
+  .forest-bg {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .forest-layer {
+    position: absolute; bottom: 0; left: 0;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+
+<button class="lang-toggle" onclick="document.body.classList.toggle('en'); this.textContent = document.body.classList.contains('en') ? 'DE' : 'EN';">EN</button>
+
+<div class="content">
+  <svg class="tree-icon" width="80" height="80" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="60" cy="60" r="48" stroke="#1a2e1a" stroke-width="2.5"/>
+    <ellipse cx="60" cy="60" rx="32" ry="34" stroke="#1a2e1a" stroke-width="2"/>
+    <ellipse cx="61" cy="59" rx="17" ry="19" stroke="#1a2e1a" stroke-width="1.5"/>
+    <circle cx="61" cy="59" r="3.5" fill="#b8954f"/>
+  </svg>
+
+  <div class="error-code">404</div>
+
+  <h1>
+    <span data-lang="de">Hier wächst nichts.</span>
+    <span data-lang="en">Nothing grows here.</span>
+  </h1>
+
+  <p>
+    <span data-lang="de">Diese Seite existiert nicht — aber unser Wald schon.</span>
+    <span data-lang="en">This page doesn't exist — but our forest does.</span>
+  </p>
+
+  <a href="index.html" class="home-link">
+    <span data-lang="de">Zurück zum Wald</span>
+    <span data-lang="en">Back to the Forest</span>
+  </a>
+</div>
+
+<div class="forest-bg">
+  <!-- Back layer — starts at x=0, regular spacing -->
+  <svg class="forest-layer" height="340" viewBox="0 0 1600 340" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="
+      M0,340 L0,280
+      L20,280 L35,170 L50,280
+      L70,280 L90,145 L110,280
+      L140,280 L155,180 L170,280
+      L200,280 L220,130 L240,280
+      L270,280 L285,190 L300,280
+      L330,280 L350,120 L370,280
+      L400,280 L415,185 L430,280
+      L460,280 L480,140 L500,280
+      L530,280 L545,175 L560,280
+      L590,280 L610,130 L630,280
+      L660,280 L675,190 L690,280
+      L720,280 L740,145 L760,280
+      L790,280 L805,180 L820,280
+      L850,280 L870,120 L890,280
+      L920,280 L935,185 L950,280
+      L980,280 L1000,135 L1020,280
+      L1050,280 L1065,175 L1080,280
+      L1110,280 L1130,125 L1150,280
+      L1180,280 L1195,190 L1210,280
+      L1240,280 L1260,140 L1280,280
+      L1310,280 L1325,180 L1340,280
+      L1370,280 L1390,130 L1410,280
+      L1440,280 L1455,185 L1470,280
+      L1500,280 L1520,145 L1540,280
+      L1560,280 L1575,190 L1590,280
+      L1600,280 L1600,340 Z
+    " fill="#1a2e1a" opacity=".06"/>
+  </svg>
+
+  <!-- Mid layer — offset ~25px right so trees sit between back layer gaps -->
+  <svg class="forest-layer" height="310" viewBox="0 0 1600 310" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="
+      M0,310 L0,270
+      L5,270 L25,125 L45,270
+      L85,270 L100,160 L115,270
+      L155,270 L175,90 L195,270
+      L235,270 L255,150 L275,270
+      L315,270 L330,170 L345,270
+      L385,270 L405,100 L425,270
+      L465,270 L485,155 L505,270
+      L545,270 L560,135 L575,270
+      L615,270 L635,85 L655,270
+      L695,270 L715,160 L735,270
+      L775,270 L790,145 L805,270
+      L845,270 L865,90 L885,270
+      L925,270 L945,155 L965,270
+      L1005,270 L1020,130 L1035,270
+      L1075,270 L1095,95 L1115,270
+      L1155,270 L1175,150 L1195,270
+      L1235,270 L1250,170 L1265,270
+      L1305,270 L1325,85 L1345,270
+      L1385,270 L1405,140 L1425,270
+      L1465,270 L1480,155 L1495,270
+      L1535,270 L1555,115 L1575,270
+      L1600,270 L1600,310 Z
+    " fill="#1a2e1a" opacity=".09"/>
+  </svg>
+
+  <!-- Front layer — offset ~15px left so trees fill remaining gaps -->
+  <svg class="forest-layer" height="280" viewBox="0 0 1600 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="
+      M0,280 L0,240
+      L30,240 L55,70 L80,240
+      L110,240 L135,105 L160,240
+      L190,240 L210,45 L230,240
+      L270,240 L290,115 L310,240
+      L340,240 L365,75 L390,240
+      L430,240 L450,100 L470,240
+      L500,240 L525,60 L550,240
+      L580,240 L600,110 L620,240
+      L660,240 L680,80 L700,240
+      L730,240 L755,35 L780,240
+      L810,240 L835,105 L860,240
+      L890,240 L910,65 L930,240
+      L960,240 L985,95 L1010,240
+      L1040,240 L1060,55 L1080,240
+      L1110,240 L1135,110 L1160,240
+      L1190,240 L1215,75 L1240,240
+      L1270,240 L1290,100 L1310,240
+      L1340,240 L1365,60 L1390,240
+      L1420,240 L1445,90 L1470,240
+      L1500,240 L1520,50 L1540,240
+      L1570,240 L1590,105 L1600,140
+      L1600,280 Z
+    " fill="#1a2e1a" opacity=".14"/>
+  </svg>
+
+  <!-- Ground -->
+  <svg class="forest-layer" height="40" viewBox="0 0 1600 40" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1600" height="40" fill="#1a2e1a" opacity=".18"/>
+  </svg>
+</div>
+
+<script>
+  if (!navigator.language.startsWith('de')) {
+    document.body.classList.add('en');
+    document.querySelector('.lang-toggle').textContent = 'DE';
+  }
+</script>
+
+</body>
+</html>
